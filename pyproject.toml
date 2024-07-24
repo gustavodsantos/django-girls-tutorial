@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "girls"
+version = "0.1.0"
+description = "Tutorial django girls."
+authors = ["Gustavo Junior dos Santos <gustavojuniordos@hotmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.7"
+python-decouple = "^3.8"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.1.0"
+pytest = "^8.3.1"
+pytest-django = "^4.8.0"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "mysite.settings"
+python_files = ["test_*.py", "*_test.py", "testing/python/*.py"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
