@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from mysite.base import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('', include('mysite.base.urls')),
+    path('', views.hello),
 ]
