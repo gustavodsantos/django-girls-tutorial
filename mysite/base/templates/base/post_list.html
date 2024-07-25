@@ -1,24 +1,38 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Django Girls blog</title>
-</head>
-<body>
-    <header>
-        <h1><a href="/">Django Girls Blog</a></h1>
-    </header>
+        <title>Django Girls blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    </head>
+    <body>
+        <header class="page-header">
+            <div class="container">
+                <h1><a href="/">Django Girls Blog</a></h1>
+            </div>
+        </header>
 
-    {% for post in posts %}
-        <article>
-            <time>published: {{ post.published_date }}</time>
-            <h2><a href="">{{ post.title }}</a></h2>
-            <p>{{ post.text|linebreaksbr }}</p>
-        </article>
-    {% endfor %}
+        <main class="container">
+            <div class="row">
+                <div class="col">
+                    {% for post in posts %}
+                        <article class="post">
+                            <h2><a href="">{{ post.title }}</a></h2>
+                            <time class="date">
+                                {{ post.published_date }}
+                            </time>
+                            <p>{{ post.text|linebreaksbr }}</p>
+                        </article>
+                    {% endfor %}
+                </div>
+            </div>
+        </main>
 
-</body>
+    </body>
 
 </html>
