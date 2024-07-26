@@ -1,13 +1,27 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-    <article class="post">
-        {% if post.published_date %}
-            <time class="date">
-                {{ post.published_date }}
-            </time>
+<article class="post">
+
+    <aside>
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span
+                class="glyphicon glyphicon-pencil"></span>
+            </a>
         {% endif %}
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.text|linebreaksbr }}</p>
-    </article>
+    </aside>
+
+    <h2>{{ post.title }}</h2>
+
+    {% if post.published_date %}
+    <time class="date">
+        {{ post.published_date }}
+    </time>
+    {% endif %}
+
+    <hr>
+    <p></p>
+    <p>{{ post.text|linebreaksbr }}</p>
+
+</article>
 {% endblock %}
